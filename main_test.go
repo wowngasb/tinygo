@@ -183,10 +183,6 @@ func runPlatTests(options compileopts.Options, tests []string, t *testing.T) {
 				// Reflect tests do not work due to type code issues.
 				continue
 
-			case "gc.go":
-				// Does not pass due to high mark false positive rate.
-				continue
-
 			case "json.go", "stdlib.go", "testing.go":
 				// Breaks interp.
 				continue
