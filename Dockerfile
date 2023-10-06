@@ -4,7 +4,7 @@ FROM golang:1.21 AS tinygo-llvm
 RUN apt-get update && \
     apt-get install -y apt-utils make cmake clang-15 ninja-build
 
-COPY ./Makefile /tinygo/Makefile
+COPY ./GNUmakefile /tinygo/GNUmakefile
 
 RUN cd /tinygo/ && \
     make llvm-source
