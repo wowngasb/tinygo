@@ -37,6 +37,19 @@ func (m *Mutex) Unlock() {
 	}
 }
 
+// TryLock tries to lock m and reports whether it succeeded.
+//
+// Note that while correct uses of TryLock do exist, they are rare,
+// and use of TryLock is often a sign of a deeper problem
+// in a particular use of mutexes.
+func (m *Mutex) TryLock() bool {
+	if m.locked {
+		return false
+	}
+	m.Lock()
+	return true
+}
+
 type RWMutex struct {
 	// waitingWriters are all of the tasks waiting for write locks.
 	waitingWriters task.Stack
