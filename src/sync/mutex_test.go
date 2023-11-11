@@ -22,11 +22,6 @@ func HammerMutex(m *sync.Mutex, loops int, cdone chan bool) {
 }
 
 func TestMutex(t *testing.T) {
-	if n := runtime.SetMutexProfileFraction(1); n != 0 {
-		t.Logf("got mutexrate %d expected 0", n)
-	}
-	defer runtime.SetMutexProfileFraction(0)
-
 	m := new(sync.Mutex)
 
 	m.Lock()
