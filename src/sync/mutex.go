@@ -4,7 +4,7 @@ import (
 	"internal/task"
 	_ "unsafe"
 
-	"github.com/tinygo-org/tinygo/src/runtime/volatile"
+	"runtime/volatile"
 )
 
 type Mutex struct {
